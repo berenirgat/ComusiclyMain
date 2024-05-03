@@ -62,6 +62,52 @@ public class User {
 		this.password = password;
 	}
 	//Methods
+	
+	public static ResultSet getByUsername(String username) throws SQLException{
+		
+		Connection connection = Main.connect();
+		String query = "select * from users where username = ?";
+		PreparedStatement stat = connection.prepareStatement(query);
+		stat.setString(1, username);
+		ResultSet r = stat.executeQuery();
+		
+		stat.close();
+		connection.close();
+		
+		return r;
+
+	}
+	
+	public static ResultSet getById(int id) throws SQLException{
+		
+		Connection connection = Main.connect();
+		String query = "select * from users where id = ?";
+		PreparedStatement stat = connection.prepareStatement(query);
+		stat.setInt(1, id);
+		ResultSet r = stat.executeQuery();
+		
+		stat.close();
+		connection.close();
+		
+		return r;
+
+	}
+	
+	public static ResultSet getByEmail(String email) throws SQLException{
+		
+		Connection connection = Main.connect();
+		String query = "select * from users where email = ?";
+		PreparedStatement stat = connection.prepareStatement(query);
+		stat.setString(1, email);
+		ResultSet r = stat.executeQuery();
+		
+		stat.close();
+		connection.close();
+		
+		return r;
+
+	}
+	
 	public static User signUp() throws SQLException {
 		
 		Scanner scanner = new Scanner(System.in);
@@ -100,12 +146,8 @@ public class User {
 		System.out.print("Enter password: ");
 		String password = scanner.nextLine();
 		
-		Connection connection = Main.connect();
-		String query = "select * from users where username = ?";
-		PreparedStatement statUsername = connection.prepareStatement(query);
-		statUsername.setString(1, username);
-		ResultSet r = statUsername.executeQuery();
-
+		
+		ResultSet r = getByUsername(username);
 		if (r.next() && r.getString(4).equals(password)) {
 			
 			int id = r.getInt(1);
