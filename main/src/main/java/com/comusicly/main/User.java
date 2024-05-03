@@ -20,6 +20,7 @@ public class User {
 		this.pictureUrl = pictureUrl;
 		
 	}
+	
 	//Getters and setters
 	public int getId() {
 		return id;
@@ -61,9 +62,10 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 	//Methods
 	
-	public static ResultSet getByUsername(String username) throws SQLException{
+	public static ResultSet getByUsername(String username) throws SQLException {
 		
 		Connection connection = Main.connect();
 		String query = "select * from users where username = ?";
@@ -78,7 +80,7 @@ public class User {
 
 	}
 	
-	public static ResultSet getById(int id) throws SQLException{
+	public static ResultSet getById(int id) throws SQLException {
 		
 		Connection connection = Main.connect();
 		String query = "select * from users where id = ?";
@@ -93,7 +95,7 @@ public class User {
 
 	}
 	
-	public static ResultSet getByEmail(String email) throws SQLException{
+	public static ResultSet getByEmail(String email) throws SQLException {
 		
 		Connection connection = Main.connect();
 		String query = "select * from users where email = ?";
@@ -138,7 +140,7 @@ public class User {
 
 	}
 	
-	public static User logIn() throws SQLException{
+	public static User logIn() throws SQLException {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Enter username: ");
 		String username = scanner.nextLine();

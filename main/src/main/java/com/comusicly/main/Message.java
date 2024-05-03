@@ -62,9 +62,7 @@ public class Message {
 	public boolean isSentByCurrentUser() {
 		
 		if (Main.getCurrentUser().getId() == senderId) {
-			
 			return true;
-			
 		}
 		
 		return false;
