@@ -12,6 +12,14 @@ public class Main {
 	
 	private static User currentUser;
 	
+	public static User getCurrentUser() {
+		return currentUser;
+	}
+
+	public static void setCurrentUser(User currentUser) {
+		Main.currentUser = currentUser;
+	}
+	
 	public static String getMySqlUrl() {
 		return mySqlUrl;
 	}
