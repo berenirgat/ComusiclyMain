@@ -46,7 +46,8 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		currentUser = User.signUp();
+		/*currentUser = User.logIn(); */
+		
 	}
 	
 	public static Connection connect() throws SQLException {
